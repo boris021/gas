@@ -2,7 +2,6 @@
 .main {
 	position: relative;
 	z-index: 1;
-	// margin-bottom: 300px;
 
 	&__body {
 		padding-top: 125px;
@@ -58,8 +57,6 @@
 			}
 		}
 	}
-
-	&__box-block {}
 
 	&__button {
 		@media (max-width:$mobile) {
@@ -219,4 +216,76 @@
 
 }
 
-//====================================================================================================
+// service ====================================================================================================
+.service {
+	@include adaptiveValue("padding-top", 80, 40);
+
+	&__title {}
+
+	&__subtitle {}
+
+	&__body {
+		display: grid;
+		row-gap: 40px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@media (max-width:$tablet) {
+			justify-content: center;
+		}
+	}
+
+	&__card {
+		background: #FFFFFF;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		flex: 0 1 40%;
+
+		@media (max-width:$tablet) {
+			flex: 1 1 auto;
+		}
+
+		&-box {
+			padding: 20px;
+		}
+	}
+
+	&__card-img {
+		min-width: 555px;
+		height: 222px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__card-title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 22, 18);
+		line-height: math.div(26, 22);
+		color: $mainColor;
+		margin-bottom: 10px;
+	}
+
+	&__card-text {
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(19, 16);
+		letter-spacing: 0.01em;
+		color: #333333;
+		margin-bottom: 15px;
+	}
+
+	&__card-btn {
+		display: inline-block;
+		background: #045D9D;
+		border-radius: 3px;
+		padding: 15px 40px;
+		font-weight: 500;
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: #FFFFFF;
+	}
+}
