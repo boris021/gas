@@ -451,6 +451,8 @@
 
 // about ========================================================================================================================================================
 .about {
+	display: flex;
+	flex-wrap: wrap;
 
 	&__body {
 		display: flex;
@@ -458,6 +460,70 @@
 		justify-content: space-between;
 		gap: 30px;
 		flex-wrap: wrap;
+		@include adaptiveValue("margin-bottom", 100, 40);
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__box-left {
+		width: 40%;
+		margin-right: 50px;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+			display: block;
+			text-align: center;
+			margin-bottom: 30px;
+			margin-right: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	&__box-right {
+		width: 50%;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+		}
+
+		&__title {
+			font-weight: 600;
+			@include adaptiveValue("font-size", 30, 26);
+			line-height: math.div(35, 30);
+			text-align: center;
+			letter-spacing: 0.02em;
+			text-transform: uppercase;
+			color: #000000;
+			margin-bottom: 30px;
+
+			span {
+				color: $brightblueColor;
+			}
+		}
+
+		&__text {
+			font-weight: 400;
+			line-height: math.div(19, 16);
+			letter-spacing: 0.02em;
+			color: #000000;
+
+			p {
+				margin-bottom: 20px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 }
 
@@ -528,5 +594,104 @@
 		letter-spacing: 0.03em;
 		color: $mainColor;
 		text-align: center;
+	}
+}
+
+// step ========================================================================================================================================================
+.step {
+	background: #EAEAEA;
+	@include adaptiveValue("margin-top", 80, 40);
+	@include adaptiveValue("padding-top", 60, 40);
+	@include adaptiveValue("padding-bottom", 60, 40);
+
+	&__subtitle {
+		max-width: 600px;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		// position: relative;
+		display: flex;
+		flex: 0 1 15%;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		margin-bottom: 20px;
+
+		@media (max-width:$tablet) {
+			flex: 1 1 50%;
+		}
+
+		&-number {
+			content: '01';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			font-size: 12px;
+			text-align: center;
+			color: #FFFFFF;
+			background: rgba(255, 82, 0, 0.866667);
+			border-radius: 50%;
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: 6px;
+			left: 0;
+		}
+
+	}
+
+	&__item-img {
+		position: relative;
+		width: rem(106);
+		height: rem(106);
+		background-color: #fff;
+		border-radius: 50%;
+		position: relative;
+		margin-bottom: 10px;
+
+		img {
+			content: '';
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&__item-text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 130%;
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: $mainColor;
+	}
+
+	&__btn {
+		padding: 12px 30px;
+		background: #045D9D;
+		border-radius: 3px;
+		font-weight: 500;
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: #FFFFFF;
+		@include adaptiveValue("margin-top", 50, 30);
+		width: rem(230);
+		margin: auto;
+		display: block;
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: 0.8;
+		}
 	}
 }
