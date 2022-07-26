@@ -312,7 +312,7 @@
 			transform: translate(-50%, -50%);
 			left: 50%;
 			border: 1px solid #033771;
-			z-index: 1;
+			z-index: 0;
 
 			@media (max-width:$tablet) {
 				display: none;
@@ -350,6 +350,7 @@
 		color: $blueColor;
 		max-width: 550px;
 		@include adaptiveValue("margin-bottom", 30, 20);
+		z-index: 1;
 
 		span {
 			color: $brightblueColor;
@@ -358,10 +359,15 @@
 
 	&__form {
 		width: 60%;
+		z-index: 2;
 
 		@media (max-width:$tablet) {
 			width: 80%;
 		}
+	}
+
+	&__action {
+		z-index: 2;
 	}
 
 	&__group {
@@ -722,6 +728,143 @@
 		}
 
 		img {
+			width: 100%;
+		}
+	}
+}
+
+// faq ========================================================================================================================================================
+.faq {
+	@include adaptiveValue("margin-top", 80, 40);
+
+	&__subtitle {
+		max-width: 760px;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__left {
+		width: 49%;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+		}
+	}
+
+	&__right {
+		width: 49%;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+		}
+	}
+}
+
+.spollers {
+
+	&__title {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 18, 14);
+		line-height: math.div(21, 18);
+		letter-spacing: 0.02em;
+		color: #000000;
+		text-align: left;
+	}
+}
+
+// license ========================================================================================================================================================
+.license {
+	@include adaptiveValue("margin-top", 80, 40);
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+
+	&__body {
+		position: relative;
+	}
+}
+
+.swiper-slide {
+
+	img {
+		width: 100%;
+		object-fit: contain;
+	}
+}
+
+// contact ========================================================================================================================================================
+.contact {
+	@include adaptiveValue("margin-top", 80, 40);
+
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__left {
+		width: 25%;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		&-subtitle {
+			font-weight: 700;
+			font-size: 18px;
+			margin-bottom: 5px;
+		}
+	}
+
+	&__left-title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 30, 24);
+		line-height: math.div(35, 30);
+		color: #000000;
+		margin-bottom: 20px;
+	}
+
+	&__left-box {
+		margin-bottom: 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__left-link {
+		font-weight: 500;
+		line-height: math.div(19, 16);
+		letter-spacing: 0.02em;
+	}
+
+	&__btn {
+		display: inline-block;
+		margin-top: 0px;
+		background: #045D9D;
+		border-radius: 3px;
+		padding: 20px 40px;
+		font-weight: 400;
+		letter-spacing: 0.02em;
+		color: #FFFFFF;
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__right {
+		width: 72%;
+
+		@media (max-width:$tablet) {
 			width: 100%;
 		}
 	}
