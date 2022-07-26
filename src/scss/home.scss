@@ -695,3 +695,38 @@
 		}
 	}
 }
+
+// work ========================================================================================================================================================
+.work {
+	@include adaptiveValue("margin-top", 80, 40);
+
+	&__body {}
+}
+
+.gallery {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@media (max-width:$tablet) {
+		justify-content: center;
+	}
+
+	&__image {
+		width: 22%;
+		margin: 10px;
+
+		@media (max-width:$tablet) {
+			width: 45%;
+		}
+
+		@media (max-width:$mobile) {
+			width: 40%;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}
