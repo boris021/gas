@@ -218,12 +218,6 @@
 
 // service ====================================================================================================
 .service {
-	@include adaptiveValue("padding-top", 80, 40);
-
-	&__title {}
-
-	&__subtitle {}
-
 	&__body {
 		display: grid;
 		row-gap: 40px;
@@ -285,5 +279,254 @@
 		text-align: center;
 		letter-spacing: 0.02em;
 		color: #FFFFFF;
+	}
+}
+
+// exitform ========================================================================================================================================================
+.exitform {
+	@include adaptiveValue("margin-top", 100, 40);
+	background: #EAEAEA;
+	position: relative;
+
+	&__bg {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 13%;
+		transform: translateY(-50%);
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
+	}
+
+	&__container {
+		position: relative;
+
+		&-bg {
+			content: '';
+			position: absolute;
+			width: 95%;
+			height: 72%;
+			top: 55%;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			border: 1px solid #033771;
+			z-index: 1;
+
+			@media (max-width:$tablet) {
+				display: none;
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		@include adaptiveValue("padding-top", 60, 40);
+		@include adaptiveValue("padding-bottom", 80, 40);
+		background: #FFFFFF;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		width: 75%;
+		margin: auto;
+
+		@media (max-width:$tablet) {
+			width: 100%;
+		}
+	}
+
+	&__title {
+		background-color: #fff;
+		padding: 0 15px;
+		z-index: 2;
+		font-weight: 700;
+		@include adaptiveValue("font-size", 40, 24);
+		line-height: math.div(47, 40);
+		text-align: center;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: $blueColor;
+		max-width: 550px;
+		@include adaptiveValue("margin-bottom", 30, 20);
+
+		span {
+			color: $brightblueColor;
+		}
+	}
+
+	&__form {
+		width: 60%;
+
+		@media (max-width:$tablet) {
+			width: 80%;
+		}
+	}
+
+	&__group {
+		margin-bottom: 25px;
+		display: block;
+	}
+
+	&__label {
+		display: block;
+		font-weight: 500;
+		@include adaptiveValue("font-size", 20, 18);
+		line-height: math.div(23, 20);
+		letter-spacing: 0.02em;
+		color: #333333;
+		margin: 0 0 10px 10px;
+	}
+
+	&-input {
+		border: 1px solid #333333 !important;
+		border-radius: 3px !important;
+		height: 50px;
+		outline: none;
+	}
+
+	::placeholder {
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 14);
+		letter-spacing: 0.02em;
+		color: #333333;
+	}
+
+	&__action {}
+
+	&__text {
+		font-weight: 500;
+		line-height: math.div(19, 16);
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: $mainColor;
+		margin-bottom: 15px;
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	&__link {
+		font-size: 26px;
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:nth-child(1) {
+			color: #00C041;
+		}
+
+		&:nth-child(2) {
+			color: #039BE5;
+		}
+
+		&:nth-child(3) {
+			color: #C75D3E;
+		}
+	}
+
+	&_btn {
+		display: block;
+		margin: auto;
+		padding: 12px 80px;
+		font-weight: 500;
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: #FFFFFF;
+		text-transform: none;
+		@include adaptiveValue("margin-bottom", 30, 20);
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
+
+// about ========================================================================================================================================================
+.about {
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 30px;
+		flex-wrap: wrap;
+	}
+}
+
+.body {
+
+	&__item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 30%;
+		background: rgba(234, 234, 234, 0.5);
+		padding: 30px;
+		height: rem(276);
+
+		@media (max-width:$tablet) {
+			width: 100%;
+		}
+
+		&:nth-child(2) {
+			background: rgba(70, 152, 211, 0.3);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 70px;
+			height: 4px;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			border-bottom: 4px solid #045D9D;
+		}
+	}
+
+	&__item-img {
+		background: #FFFFFF;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 50%;
+		width: rem(84);
+		height: rem(84);
+		position: relative;
+		margin-bottom: 22px;
+
+		img {
+			position: absolute;
+			width: 50%;
+			height: 50%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+	}
+
+	&__item-title {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 20, 18);
+		color: $mainColor;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	&__item-text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 140%;
+		letter-spacing: 0.03em;
+		color: $mainColor;
+		text-align: center;
 	}
 }
