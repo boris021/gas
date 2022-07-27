@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220726220215">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220727090300">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,15 +72,15 @@
 								<a href="https://api.whatsapp.com/send?phone=77074453916" class="btn main__button button">Получить скидку</a>
 							</div>
 							<div class="main__box-form">
-								<form action="">
+								<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 									<div class="main__form">
 										<div class="main__form-title">Узнайте стоимость подключения</div>
 										<div class="main__form-subtitle">По телефону через 5 минут</div>
 										<div class="form__group">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Ваше имя" class="input form__group-inp">
+											<input autocomplete="off" type="text" name="text" data-error="Вы не ввели ваше имя" placeholder="Ваше имя" data-required="text" class="input form__group-inp">
 										</div>
 										<div class="form__group">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Ваш телефон" class="input form__group-inp">
+											<input autocomplete="off" type="tel" name="tel" data-error="Вы не ввели номер телефона" placeholder="Ваш телефон" data-required="tel" class="input form__group-inp tel">
 										</div>
 										<button type="submit" class="button main__form-btn ">Узнать цену</button>
 									</div>
@@ -148,14 +148,14 @@
 						<div class="exitform__title">Выезд нашего
 							специалиста <span>бесплатно</span></div>
 						<div class="exitform__form">
-							<form action="">
+							<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 								<div class="exitform__group">
-									<label for="" class="exitform__label">Ваше имя</label>
-									<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Имя" class="input exitform-input">
+									<label for="name" name="name" class="exitform__label">Ваше имя</label>
+									<input type="name" name="name" data-error="Вы не ввели ваше имя" placeholder="Серикбек" class="input exitform-input" data-required="text">
 								</div>
 								<div class="exitform__group">
-									<label for="tel" class="exitform__label">Ваш телефон</label>
-									<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" placeholder="+7 000 000 00 00" class="input exitform-input">
+									<label for="tel" name="tel" class="exitform__label">Ваш телефон</label>
+									<input type="tel" name="tel" data-error="Вы не ввели номер телефона" class="input exitform-input tel" placeholder="7 000 000 00 00" data-required="tel">
 								</div>
 								<button type="submit" class="button exitform_btn">Отправить</button>
 							</form>
@@ -313,14 +313,14 @@
 						<div class="exitform__title">Выезд нашего
 							специалиста <span>бесплатно</span></div>
 						<div class="exitform__form">
-							<form action="">
+							<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 								<div class="exitform__group">
-									<label for="" class="exitform__label">Ваше имя</label>
-									<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Имя" class="input exitform-input">
+									<label for="name" name="name" class="exitform__label">Ваше имя</label>
+									<input type="name" name="name" data-error="Вы не ввели ваше имя" placeholder="Серикбек" class="input exitform-input" data-required="text">
 								</div>
 								<div class="exitform__group">
-									<label for="tel" class="exitform__label">Ваш телефон</label>
-									<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" placeholder="+7 000 000 00 00" class="input exitform-input">
+									<label for="tel" name="tel" class="exitform__label">Ваш телефон</label>
+									<input type="tel" name="tel" data-error="Вы не ввели номер телефона" class="input exitform-input tel" placeholder="7 000 000 00 00" data-required="tel">
 								</div>
 								<button type="submit" class="button exitform_btn">Отправить</button>
 							</form>
@@ -601,7 +601,65 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20220726220215"></script>
+	<div id="message" class="popup popup_send-message message">
+		<div class="popup__content">
+			<div class="popup__body">
+				<button data-close type="button" class="popup__close">X</button>
+				<div class="popup__send">Ваше сообщение отправлено!</div>
+				<div class="popup__send-text">Также вы можете написать нам в мессенджеры</div>
+				<div class="popup_social">
+					<button class="link-soc"> <a href="https://api.whatsapp.com/send?phone=77074453916">
+							<img src="img/whatsapp.png" class="soc-itme" alt="whatsapp"></a>
+					</button>
+					<button class="link-soc telegram"> <a href="https://t.me/">
+							<img src="img/telegram.png" class="soc-itme" alt="whatsapp"></a>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220727090300"></script>
+
+	<script>
+		window.addEventListener("DOMContentLoaded", function() {
+			[].forEach.call(document.querySelectorAll('.tel'), function(input) {
+				var keyCode;
+
+				function mask(event) {
+					event.keyCode && (keyCode = event.keyCode);
+					var pos = this.selectionStart;
+					if (pos < 3) event.preventDefault();
+					var matrix = "+7 (___) ___ ____",
+						i = 0,
+						def = matrix.replace(/\D/g, ""),
+						val = this.value.replace(/\D/g, ""),
+						new_value = matrix.replace(/[_\d]/g, function(a) {
+							return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+						});
+					i = new_value.indexOf("_");
+					if (i != -1) {
+						i < 5 && (i = 3);
+						new_value = new_value.slice(0, i)
+					}
+					var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+						function(a) {
+							return "\\d{1," + a.length + "}"
+						}).replace(/[+()]/g, "\\$&");
+					reg = new RegExp("^" + reg + "$");
+					if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value =
+						new_value;
+					if (event.type == "blur" && this.value.length < 5) this.value = ""
+				}
+
+				input.addEventListener("input", mask, false);
+				input.addEventListener("focus", mask, false);
+				input.addEventListener("blur", mask, false);
+				input.addEventListener("keydown", mask, false)
+
+			});
+
+		});
+	</script>
 </body>
 
 </html>
