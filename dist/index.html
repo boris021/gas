@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220727115505">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220727205841">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,12 +72,12 @@
 								<a href="https://api.whatsapp.com/send?phone=77074453916" class="btn main__button button">Получить скидку</a>
 							</div>
 							<div class="main__box-form">
-								<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
+								<form data-ajax data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 									<div class="main__form">
 										<div class="main__form-title">Узнайте стоимость подключения</div>
 										<div class="main__form-subtitle">По телефону через 5 минут</div>
 										<div class="form__group">
-											<input autocomplete="off" type="text" name="text" data-error="Вы не ввели ваше имя" placeholder="Ваше имя" data-required="text" class="input form__group-inp">
+											<input autocomplete="off" type="name" name="name" data-error="Вы не ввели ваше имя" placeholder="Ваше имя" data-required="text" class="input form__group-inp">
 										</div>
 										<div class="form__group">
 											<input autocomplete="off" type="tel" name="tel" data-error="Вы не ввели номер телефона" placeholder="Ваш телефон" data-required="tel" class="input form__group-inp tel">
@@ -148,7 +148,7 @@
 						<div class="exitform__title">Выезд нашего
 							специалиста <span>бесплатно</span></div>
 						<div class="exitform__form">
-							<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
+							<form data-ajax data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 								<div class="exitform__group">
 									<label for="name" name="name" class="exitform__label">Ваше имя</label>
 									<input type="name" name="name" data-error="Вы не ввели ваше имя" placeholder="Серикбек" class="input exitform-input" data-required="text">
@@ -313,7 +313,7 @@
 						<div class="exitform__title">Выезд нашего
 							специалиста <span>бесплатно</span></div>
 						<div class="exitform__form">
-							<form data-ajax="true" data-popup-message="#message" action="sendmail.php" method="POST" class="form">
+							<form data-ajax data-popup-message="#message" action="sendmail.php" method="POST" class="form">
 								<div class="exitform__group">
 									<label for="name" name="name" class="exitform__label">Ваше имя</label>
 									<input type="name" name="name" data-error="Вы не ввели ваше имя" placeholder="Серикбек" class="input exitform-input" data-required="text">
@@ -618,7 +618,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220727115505"></script>
+	<script src="js/app.min.js?_v=20220727205841"></script>
 
 	<script>
 		window.addEventListener("DOMContentLoaded", function() {
