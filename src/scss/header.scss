@@ -130,9 +130,14 @@
 
 	&__phone {
 		font-weight: 700;
-		font-size: 22px;
+		font-size: 20px;
 		color: $blueColor;
 		transition: opacity 0.3s ease 0s;
+		margin-bottom: 4px;
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
 
 		&:hover {
 			opacity: 0.8;

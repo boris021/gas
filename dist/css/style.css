@@ -765,11 +765,16 @@ body::after {
 
 .actions__phone {
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   color: #033771;
   -webkit-transition: opacity 0.3s ease 0s;
   -o-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
+  margin-bottom: 4px;
+}
+
+.actions__phone:last-child {
+  margin-bottom: 0px;
 }
 
 .actions__phone:hover {
